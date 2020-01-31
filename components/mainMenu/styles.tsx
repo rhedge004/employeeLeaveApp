@@ -1,12 +1,4 @@
-import React from 'react';
-import {StyleSheet, TextInput, View, Text, Button} from 'react-native';
-import {theme} from "../../assets/theme";
-
-const Login = () => {
-    return(
-        <View></View>
-    )
-};
+import {StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -35,4 +27,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Login;
+export default styles;
