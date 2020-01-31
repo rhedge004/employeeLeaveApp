@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Button, StyleSheet, Text, TextInput, View, Image, TouchableOpacity } from 'react-native';
 import {theme} from "./assets/theme";
 import MainMenu from './components/mainMenu';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function App() {
   const [logged,toggleLogin] = useState(false);
@@ -49,9 +50,12 @@ export default function App() {
         </>
       :
         <>
-          <View>
-            <Button title={'Logout'} color={theme.primary} onPress={()=> toggleLogin(false)}/>
-          </View>
+            <TouchableOpacity
+            style={styles.button}
+            onPress={()=> toggleLogin(false)}>
+                <Ionicons name="md-power" size={20} color="white" />
+                <Text style={{color:'white'}}>Logout</Text>
+            </TouchableOpacity>
           <MainMenu/>
         </>
        )}
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
       backgroundColor: theme.primary,
       padding: 10,
       marginTop: 25,
-      borderRadius: 12
+      borderRadius: 12,
   },
   text: {
     fontSize: 20,
