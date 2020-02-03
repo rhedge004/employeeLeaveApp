@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, StyleSheet, Text, TextInput, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Image, TouchableOpacity } from 'react-native';
 import {theme} from "./assets/theme";
 import MainMenu from './components/mainMenu';
 import { Ionicons } from '@expo/vector-icons';
@@ -67,18 +67,18 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-      flex:1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: theme.background,
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: theme.background,
   },
   login:  {
-      borderRadius:20,
-      borderColor: 'black',
-      padding: 20,
-      borderWidth: 1,
-      backgroundColor:'white',
-      width:'95%'
+    borderRadius:20,
+    borderColor: 'black',
+    padding: 20,
+    borderWidth: 1,
+    backgroundColor:'white',
+    width:'95%'
   },
   input: {
     height: 44,
@@ -89,18 +89,20 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button:{
-      alignItems: 'center',
-      backgroundColor: theme.primary,
-      padding: 10,
-      marginTop: 30,
-      width:100
+    alignItems: 'center',
+    backgroundColor: theme.primary,
+    padding: 10,
+    marginTop: 30,
+    width:'100%',
+    borderRadius:12,
   },
   logout:{
-      alignItems: 'center',
-      backgroundColor: theme.primary,
-      padding: 10,
-      marginTop: '5%',
-      width:100
+    alignItems: 'center',
+    backgroundColor: theme.primary,
+    padding: 10,
+    marginTop: '5%',
+    borderRadius:12,
+    width:'20%'
   },
   text: {
     fontSize: 20,
@@ -110,18 +112,18 @@ const styles = StyleSheet.create({
     color:'gray',
   },
   footer:{
-      alignContent:'center',
-      justifyContent:'center',
-      textAlign:'center',
-      backgroundColor: theme.background,
-      height: 70
+    alignContent:'center',
+    justifyContent:'center',
+    textAlign:'center',
+    backgroundColor: theme.background,
+    height: 70
   },
   header:{
-      backgroundColor: theme.background,
-      height: '10%',
-      display: 'flex',
-      flexWrap: 'wrap',
-      flexDirection:'row',
-      paddingTop:10,
+    backgroundColor: theme.background,
+    height: 90,
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection:'row-reverse',
+    padding:20,
   }
 });

@@ -1,71 +1,86 @@
 import React from 'react';
-import {TextInput, View, Text, Button, StyleSheet, TouchableOpacity} from 'react-native';
-import {theme} from "../../assets/theme";
-import { Ionicons } from '@expo/vector-icons';
+import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 import Items from './items';
-import Item from './menuItem';
+import {theme} from "../../assets/theme";
+const NoProfile = require('../../assets/noprofile.jpg');
+import { Ionicons } from '@expo/vector-icons';
 
 const MainMenu = () => {
     return(
-      <View style={styles.container}>
-        {Object.values(Items).map((data)=>(
-          <Item data={data} />
-        ))}
+      <View>
+        <View style={styles.profileContainer}>
+          <Image
+            style={styles.profilePicture}
+            source={NoProfile}
+          />
+          <View style={styles.profileBody}>
+              <Text style={{color:'white',fontSize:25}}>Juan dela Cruz</Text>
+              <Text style={{color:theme.gray,fontSize:15}}>Please select an action below.</Text>
+          </View>
+        </View>
+        <View  style={styles.itemsContainer}>
+          {Object.values(Items).map((data)=>(
+            <TouchableOpacity
+            style={styles.button}
+            onPress={()=> null}>
+                <Ionicons name={data.icon} size={50} color={data.color} />
+                <Text style={{color: data.color,fontSize:15,textAlign:'center'}}>{data.text}</Text>
+            </TouchableOpacity>
+          ))}
+          <View style={styles.footer}>
+              <Text style={{color:'white'}}>© RD21 MetalCraft 2020</Text>
+          </View>
+        </View>
       </View>
     )
 };
 
 const styles = StyleSheet.create({
-  container: {
+  profileContainer: {
+    display:'flex',
+    padding:10,
+    alignItems:'flex-start',
+    flexDirection:'row',
+    width:'100%',
+    backgroundColor: theme.background,
+    borderBottomWidth:5,
+    borderBottomColor:theme.primary
+  },
+  profileBody:{
+    flex:1
+  },
+  profilePicture:{
+    height:70,
+    width:70,
+  },
+  itemsContainer: {
       flex:1,
       flexDirection: 'row',
       flexWrap:'wrap',
       justifyContent:'space-evenly',
       width:'100%',
-      backgroundColor:'white',
-  },
-  login:  {
-      borderRadius:20,
-      borderColor: 'black',
-      padding: 20,
-      borderWidth: 1,
-      backgroundColor:'white',
-      width:'95%'
-  },
-  input: {
-    height: 44,
-    padding: 10,
-    borderWidth: 1,
-    borderRadius: 12,
-    borderColor: '#E8E7E9',
-    marginBottom: 10,
+      backgroundColor: theme.white,
   },
   button:{
       backgroundColor:theme.gray,
-      height:140,
-      width:140,
+      height:125,
+      width:125,
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: 10,
       borderRadius: 20
   },
-  text: {
-    fontSize: 20,
-    marginTop: 10,
-    marginBottom: 20,
+  footer: {
+    alignSelf:'flex-end',
     width:'100%',
-    color:'gray',
-  },
-  footer:{
-      alignContent:'center',
-      justifyContent:'center',
-      textAlign:'center',
-      backgroundColor: theme.background,
-      height: 70
-  },
-  header:{
-      backgroundColor: theme.background,
-      height: 70
+    color:'black',
+    backgroundColor:theme.background,
+    marginTop:90,
+    height:60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopColor: theme.primary,
+    borderTopWidth: 5
   }
 });
 
