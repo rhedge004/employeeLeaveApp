@@ -8,9 +8,9 @@ export default function App() {
   const [logged,toggleLogin] = useState(false);
   const Splash = require('./assets/splash.png');
   return (
-      <View style={styles.container}>
-      {
+
       (!logged ?
+      <View style={styles.container}>
         <>
           <View style={{margin:25}}>
             <Image
@@ -48,18 +48,20 @@ export default function App() {
             <Text style={{color:'white'}}>© RD21 MetalCraft 2020</Text>
           </View>
         </>
+      </View>
       :
         <>
+          <View style={styles.header}>
             <TouchableOpacity
-            style={styles.button}
+            style={styles.logout}
             onPress={()=> toggleLogin(false)}>
-                <Ionicons name="md-power" size={20} color="white" />
-                <Text style={{color:'white'}}>Logout</Text>
+                <Ionicons name="md-power" size={15} color="white" />
+                <Text style={{color:'white',fontSize:12}}>Logout</Text>
             </TouchableOpacity>
+          </View>
           <MainMenu/>
         </>
-       )}
-      </View>
+       )
   );
 }
 
@@ -90,8 +92,15 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: theme.primary,
       padding: 10,
-      marginTop: 25,
-      borderRadius: 12,
+      marginTop: 30,
+      width:100
+  },
+  logout:{
+      alignItems: 'center',
+      backgroundColor: theme.primary,
+      padding: 10,
+      marginTop: '5%',
+      width:100
   },
   text: {
     fontSize: 20,
@@ -109,6 +118,10 @@ const styles = StyleSheet.create({
   },
   header:{
       backgroundColor: theme.background,
-      height: 70
+      height: '10%',
+      display: 'flex',
+      flexWrap: 'wrap',
+      flexDirection:'row',
+      paddingTop:10,
   }
 });

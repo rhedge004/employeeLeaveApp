@@ -1,11 +1,16 @@
 import React from 'react';
-import {TextInput, View, Text, Button, StyleSheet} from 'react-native';
+import {TextInput, View, Text, Button, StyleSheet, TouchableOpacity} from 'react-native';
 import {theme} from "../../assets/theme";
+import { Ionicons } from '@expo/vector-icons';
+import Items from './items';
+import Item from './menuItem';
 
 const MainMenu = () => {
     return(
-      <View style={styles.login}>
-          <Text>Main Menu!</Text>
+      <View style={styles.container}>
+        {Object.values(Items).map((data)=>(
+          <Item data={data} />
+        ))}
       </View>
     )
 };
@@ -13,9 +18,11 @@ const MainMenu = () => {
 const styles = StyleSheet.create({
   container: {
       flex:1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: theme.background,
+      flexDirection: 'row',
+      flexWrap:'wrap',
+      justifyContent:'space-evenly',
+      width:'100%',
+      backgroundColor:'white',
   },
   login:  {
       borderRadius:20,
@@ -34,6 +41,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button:{
+      backgroundColor:theme.gray,
+      height:140,
+      width:140,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 10,
+      borderRadius: 20
   },
   text: {
     fontSize: 20,
